@@ -59,7 +59,7 @@ it defines the following:
 
 .. py:function:: tables.destroyAll()
 
-   remove all cash data created by :py:class:`html.Tables` in this instance of the interpreter. to remove all cash data use :py:func:`tables.clearSlait`.
+   remove all cash data created by :py:class:`htmlTable` in this instance of the interpreter. to remove all cash data use :py:func:`tables.clearSlait`.
 
 |
 
