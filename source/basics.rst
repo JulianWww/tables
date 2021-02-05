@@ -14,7 +14,7 @@ it defines the following:
 
 * :py:func:`tables.destroyAll`
 
-* :py:class:`htmlTables`
+* :py:class:`htmlTable`
 
 
 .. note::
