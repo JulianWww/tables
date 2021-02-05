@@ -1,0 +1,231 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tables usage &#8212; tables 0.0.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to tables’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="tables-usage">
+<h1>tables usage<a class="headerlink" href="#tables-usage" title="Permalink to this headline">¶</a></h1>
+<p>the python tables package can be used to easily create and render tables.
+As of right now it only supports rendering lists of lists in tabular form.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>it defines the following:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#tables.printTable" title="tables.printTable"><code class="xref py py-func docutils literal notranslate"><span class="pre">tables.printTable()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#tables.clearSlait" title="tables.clearSlait"><code class="xref py py-func docutils literal notranslate"><span class="pre">tables.clearSlait()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#tables.destroyAll" title="tables.destroyAll"><code class="xref py py-func docutils literal notranslate"><span class="pre">tables.destroyAll()</span></code></a></p></li>
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">htmlTables</span></code></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>for demonstrational perpaces I will use the input list:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span><span class="p">[[</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="s2">&quot;good by&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;fr&quot;</span><span class="p">,</span> <span class="s2">&quot;salut&quot;</span><span class="p">,</span> <span class="s2">&quot;aurevoir&quot;</span><span class="p">,</span> <span class="s2">&quot;bon jour&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;de&quot;</span><span class="p">,</span> <span class="s2">&quot;hallo&quot;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<dl class="py function">
+<dt id="tables.printTable">
+<code class="sig-prename descclassname">tables.</code><code class="sig-name descname">printTable</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">table</span></em>, <em class="sig-param"><span class="n">renderInner</span><span class="o">=</span><span class="default_value">Fasle</span></em>, <em class="sig-param"><span class="n">filler</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tables.printTable" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>render a 2d matrix in tabular form. any missing elements will be replaced with the parameter <code class="docutils literal notranslate"><span class="pre">filler</span></code>. the renderInner parameter will render all the lines inside the table if True.
+<code class="docutils literal notranslate"><span class="pre">tables.printTable(m)</span></code>
+will output:</p>
+</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>      <span class="o">+-------------------------------------+</span>
+      <span class="o">|</span>          <span class="n">hello</span>    <span class="n">good</span> <span class="n">by</span>           <span class="o">|</span>
+      <span class="o">|</span> <span class="n">fr</span>       <span class="n">salut</span>    <span class="n">aurevoir</span> <span class="n">bon</span> <span class="n">jour</span> <span class="o">|</span>
+      <span class="o">|</span> <span class="n">de</span>       <span class="n">hallo</span>                      <span class="o">|</span>
+      <span class="o">+-------------------------------------+</span>
+<span class="ow">and</span> <span class="k">with</span> <span class="n">renderInner</span> <span class="kc">True</span>
+     <span class="o">+----------+----------+----------+----------+</span>
+     <span class="o">|</span>          <span class="o">|</span> <span class="n">hello</span>    <span class="o">|</span> <span class="n">good</span> <span class="n">by</span>  <span class="o">|</span>          <span class="o">|</span>
+     <span class="o">+----------+----------+----------+----------+</span>
+     <span class="o">|</span> <span class="n">fr</span>       <span class="o">|</span> <span class="n">salut</span>    <span class="o">|</span> <span class="n">aurevoir</span> <span class="o">|</span> <span class="n">bon</span> <span class="n">jour</span> <span class="o">|</span>
+     <span class="o">+----------+----------+----------+----------+</span>
+     <span class="o">|</span> <span class="n">de</span>       <span class="o">|</span> <span class="n">hallo</span>    <span class="o">|</span>          <span class="o">|</span>          <span class="o">|</span>
+     <span class="o">+----------+----------+----------+----------+</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="tables.clearSlait">
+<code class="sig-prename descclassname">tables.</code><code class="sig-name descname">clearSlait</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tables.clearSlait" title="Permalink to this definition">¶</a></dt>
+<dd><p>remove all cash data created by <a class="reference internal" href="#htmlTable" title="htmlTable"><code class="xref py py-class docutils literal notranslate"><span class="pre">htmlTable</span></code></a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>this function will affects every interpreter instance ans should be used sparingly. it basicly deletes everything. to only destroy this interpreters cash use <a class="reference internal" href="#tables.destroyAll" title="tables.destroyAll"><code class="xref py py-func docutils literal notranslate"><span class="pre">tables.destroyAll()</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="tables.destroyAll">
+<code class="sig-prename descclassname">tables.</code><code class="sig-name descname">destroyAll</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tables.destroyAll" title="Permalink to this definition">¶</a></dt>
+<dd><p>remove all cash data created by <code class="xref py py-class docutils literal notranslate"><span class="pre">html.Tables</span></code> in this instance of the interpreter. to remove all cash data use <a class="reference internal" href="#tables.clearSlait" title="tables.clearSlait"><code class="xref py py-func docutils literal notranslate"><span class="pre">tables.clearSlait()</span></code></a>.</p>
+</dd></dl>
+
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<dl class="py class">
+<dt id="htmlTable">
+<em class="property">class </em><code class="sig-name descname">htmlTable</code><span class="sig-paren">(</span><em class="sig-param">inp</em>, <em class="sig-param">...</em><span class="sig-paren">)</span><a class="headerlink" href="#htmlTable" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">the htmlTable class can be used to create html documents containing tables and open them in a         browser.</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inp</strong> (<em>list</em><em>[</em><em>list</em><em>[</em><em>object</em><em>]</em><em>]</em>) – the input table from witch to generate the table from. The genration works identicly to the one used by <a class="reference internal" href="#tables.printTable" title="tables.printTable"><code class="xref py py-func docutils literal notranslate"><span class="pre">tables.printTable()</span></code></a>.</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – the title of the table it doesn’t have any further meaning, default is <code class="docutils literal notranslate"><span class="pre">table</span></code></p></li>
+<li><p><strong>keyRowIdx</strong> (<em>int</em>) – what row to write in bold letters, if -1 or not a valid value it will not show anything in bowld, default is -1.</p></li>
+<li><p><strong>keyColIdx</strong> (<em>int</em>) – same as keyRowIdx but for the collums</p></li>
+<li><p><strong>border</strong> (<em>int</em>) – how thick the border of the table should be.</p></li>
+<li><p><strong>encoding</strong> (<em>str</em>) – what the encoding system should be defaults to <code class="docutils literal notranslate"><span class="pre">utf-8</span></code></p></li>
+<li><p><strong>caption</strong> (<em>str</em>) – the catpion of the table, defaults to <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="htmlTable.cash">
+<code class="sig-name descname">cash</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#htmlTable.cash" title="Permalink to this definition">¶</a></dt>
+<dd><p>resaves the table to the libraries html cash witch can be cleared using <a class="reference internal" href="#tables.clearSlait" title="tables.clearSlait"><code class="xref py py-func docutils literal notranslate"><span class="pre">tables.clearSlait()</span></code></a> or <a class="reference internal" href="#tables.destroyAll" title="tables.destroyAll"><code class="xref py py-func docutils literal notranslate"><span class="pre">tables.destroyAll()</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">open():</code></dt>
+<dd><p>open the generated html file using <span class="xref std std-ref">webbrowsers</span> open function.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">open_new():</code></dt>
+<dd><p>open the generated html file using <span class="xref std std-ref">webbrowsers</span> open_new function.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">open_new_tab():</code></dt>
+<dd><p>open the generated html file using <span class="xref std std-ref">webbrowsers</span> open_new_tab function.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">delete():</code></dt>
+<dd><p>delets all cashed data generated by this html table.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">copyFile(path):</code></dt>
+<dd><p>copies the cashed html file to path
+:param str path: a valid os path to copy the html file to</p>
+</dd></dl>
+
+</dd></dl>
+
+<p><a class="reference internal" href="index.html"><span class="doc">Welcome to tables’s documentation!</span></a></p>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">tables</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">tables usage</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to tables’s documentation!</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, julianWandhoven.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/basics.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
