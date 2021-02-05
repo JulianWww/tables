@@ -1,18 +1,18 @@
-tables usage
-============
+tablepy usage
+=============
 
-the python tables package can be used to easily create and render tables.
+the python tablepy package can be used to easily create and render tables.
 As of right now it only supports rendering lists of lists in tabular form. 
 
 |
 
 it defines the following:
 
-* :py:func:`tables.printTable`
+* :py:func:`tablepy.printTable`
 
-* :py:func:`tables.clearSlait`
+* :py:func:`tablepy.clearSlait`
 
-* :py:func:`tables.destroyAll`
+* :py:func:`tablepy.destroyAll`
 
 * :py:class:`htmlTable`
 
@@ -28,10 +28,10 @@ it defines the following:
           ["de", "hallo"]]
 
 
-.. py:function:: tables.printTable(table, renderInner=Fasle, filler="")
+.. py:function:: tablepy.printTable(table, renderInner=Fasle, filler="")
    
     render a 2d matrix in tabular form. any missing elements will be replaced with the parameter ``filler``. the renderInner parameter will render all the lines inside the table if True. 
-    ``tables.printTable(m)``
+    ``tablepy.printTable(m)``
     will output:
 
    .. code-block:: python
@@ -50,16 +50,16 @@ it defines the following:
           | de       | hallo    |          |          | 
           +----------+----------+----------+----------+
 
-.. py:function:: tables.clearSlait()
+.. py:function:: tablepy.clearSlait()
 
     remove all cash data created by :py:class:`htmlTable`. 
     
     .. warning::
-        this function will affects every interpreter instance ans should be used sparingly. it basicly deletes everything. to only destroy this interpreters cash use :py:func:`tables.destroyAll`
+        this function will affects every interpreter instance ans should be used sparingly. it basicly deletes everything. to only destroy this interpreters cash use :py:func:`tablepy.destroyAll`
 
-.. py:function:: tables.destroyAll()
+.. py:function:: tablepy.destroyAll()
 
-   remove all cash data created by :py:class:`htmlTable` in this instance of the interpreter. to remove all cash data use :py:func:`tables.clearSlait`.
+   remove all cash data created by :py:class:`htmlTable` in this instance of the interpreter. to remove all cash data use :py:func:`tablepy.clearSlait`.
 
 |
 
@@ -77,7 +77,7 @@ it defines the following:
 
     .. py:method:: cash()
 
-        resaves the table to the libraries html cash witch can be cleared using :py:func:`tables.clearSlait()` or :py:func:`tables.destroyAll()`
+        resaves the table to the libraries html cash witch can be cleared using :py:func:`tablepy.clearSlait()` or :py:func:`tablepy.destroyAll()`
 
     .. py:method:: open():
 
