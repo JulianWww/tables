@@ -1,7 +1,7 @@
-Welcome to tables's documentation!
+Welcome to tablepy's documentation!
 ==================================
 
-the python tables package can be used to easily create and render tables.
+the python tablepy package can be used to easily create and render tables.
 As of right now it only supports rendering lists of lists in tabular form. 
 
 
